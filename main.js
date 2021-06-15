@@ -1,11 +1,37 @@
-let num = 266219;
+//через if
+let ruWeekDays = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+let enWeekDays = ['mon', 'tu', 'we', 'th', 'fr', 'sat', 'sun'];
 
-let array = num.toString().split('');
 
-let result = 1;
-for(let i = 0; i < array.length; i++){
-    result = array[i]*result;
+let ifVariant = function(lang) {
+    if (lang === "ru") return ruWeekDays;
+    if (lang === "en") return enWeekDays;
+};
+
+
+console.log(ifVariant('ru'));
+console.log(ifVariant('en'));
+
+//через switch-case 
+
+let swVariant = function(lang) {
+    switch(lang){
+        case 'ru': return ruWeekDays;
+        case 'en': return enWeekDays;
+    }
 }
-result = result**3;
 
-console.log(result.toString().slice(0, 2));
+console.log(swVariant('ru'));
+console.log(swVariant('en'));
+
+//через многомерный массив без ифов и switch.
+
+let arrVariant = function(lang){
+    let array = {
+        'ru': ruWeekDays,
+        'en': enWeekDays
+    }
+    return array[lang];
+}
+console.log(arrVariant('ru'));
+console.log(arrVariant('en'));
